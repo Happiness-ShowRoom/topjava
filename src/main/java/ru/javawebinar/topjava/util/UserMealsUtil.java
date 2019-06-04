@@ -43,7 +43,6 @@ public class UserMealsUtil {
 
         final List<IndicativeUserMeal> filteredUserMeals = new ArrayList<>();
         mealList.forEach(userMeal -> {
-//            final LocalDateTime dateTime = userMeal.getMealIntakeDateTime();
             if (TimeUtil.isTimeBetween(userMeal.getMealIntakeDateTime().toLocalTime(), startTime, endTime)) {
                 filteredUserMeals.add(new IndicativeUserMeal(userMeal.getMealIntakeDateTime(), userMeal.getMealDescription(), userMeal.getCalories(), dailyCalorieIntake.get(userMeal.getMealIntakeDateTime().toLocalDate()) > caloriesPerDay));
             }
